@@ -9,8 +9,12 @@ class App extends Component {
         return (
             <div className="App">
                 <Nav className="ad1" />
-                <Route path="/" exact component={Timer} />
-                <Route path="/countdown" component={Countdown} />
+                <div className="row">
+                    <div className="column small-centered medium-6">
+                        <Route path="/" exact component={Timer} />
+                        <Route path="/countdown" component={Countdown} />
+                    </div>
+                </div>
             </div>
         );
     }
