@@ -1,6 +1,3 @@
-/**
- * Created by aartemenko on 5/23/2017.
- */
 import { createStore } from 'redux'
 
 const defaultState = {
@@ -11,6 +8,20 @@ const defaultState = {
 };
 
 let nextHobbyId = 1;
+
+const changeName = (name) => ({
+    type: 'CHANGE_NAME',
+    name
+});
+
+const NameReducer = (state = 'Anonymus', action) => {
+    switch (action.type) {
+        case 'CHANGE_NAME':
+            return action.name;
+        default:
+            return state;
+    }
+};
 
 const reducer = (state = defaultState, action) => {
     // console.log('New action ', action);
@@ -68,10 +79,7 @@ store.dispatch({
 
 unsubscribe();
 
-store.dispatch({
-    type: 'CHANGE_NAME',
-    name: 'Vassa'
-});
+store.dispatch(changeName('Andriy'));
 
 store.dispatch({
     type: 'ADD_HOBBY',

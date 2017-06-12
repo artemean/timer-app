@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Clock.css';
 
+const ClockTitle = ({title, className}) => {
+  return (
+      <div className={className}>
+        <div className="text-center clock-title">{title}</div>
+      </div>
+  )
+};
+
 class Clock extends Component {
 
     static props = {
@@ -26,11 +34,15 @@ class Clock extends Component {
     render() {
         const {totalSeconds} = this.props;
         return (
-            <div className="clock">
-                <span className="clock-text">
+            <div>
+                <ClockTitle className="some" title="My Clock" />
+                <div className="clock">
+                    <span className="clock-text">
                     {this.formatSeconds(totalSeconds)}
                 </span>
+                </div>
             </div>
+
         );
     }
 }
